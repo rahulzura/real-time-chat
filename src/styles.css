@@ -1,0 +1,158 @@
+:root {
+  --white-text: #F5F5F5;
+  --blue-color: #073e71;
+  --green-color: #0D7953;
+  --black-color: #1E1E1E;
+  --white-border: #D9D9D9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.sign-up-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-cont {
+  margin-top: 200px;
+  width: 320px;
+  border: 1px solid var(--white-border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-group > label {
+  margin-bottom: 8px;
+}
+
+.input-group > input {
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid var(--white-border);
+  padding: 12px 16px;
+}
+
+.input-group > label {
+  display: block;
+}
+
+.btn-primary {
+  border-radius: 8px;
+  background-color: var(--black-color);
+  color: var(--white-text);
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.link-primary {
+  color: var(--black-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.chat-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100vh;
+}
+
+.chat-list-cont {
+  width: 25%;
+  color: var(--white-text);
+}
+
+.chat-list-heading {
+  font-size: 2rem;
+  margin: 0 0 20px 0;
+  color: var(--black-color);
+  padding: 20px;
+}
+
+.chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-list > li {
+  padding: 6px 0;
+  cursor: pointer;
+  color: var(--black-color);
+  padding: 16px 20px;
+}
+
+.chat-list > li.selected {
+  background-color: var(--blue-color);
+  color: var(--white-text);
+}
+
+.chat-window {
+  width: 75%;
+  background-color: #eee;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.chat-box {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 8px;
+  padding-top: 32px;
+}
+
+.chat-input {
+  width: 100%;
+}
+
+.send-btn {
+  display: inline-block;
+}
+
+.message-cont {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 16px;
+}
+
+.sent-message-cont {
+  justify-content: flex-end;
+}
+
+.received-message-cont {
+  justify-content: flex-start;
+}
+
+.message {
+  padding: 12px 16px;
+  color: var(--white-text);
+  border-radius: 4px;
+  max-width: 70%;
+}
+
+.sent-message-cont > .message {
+  background-color: var(--green-color);
+}
+
+.received-message-cont > .message {
+  background-color: var(--blue-color);
+}
