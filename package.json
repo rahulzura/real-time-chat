@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "REACT_APP_API_URL=http://127.0.0.1:3000 REACT_APP_WS_URL=ws://127.0.0.1:3000 webpack serve --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
