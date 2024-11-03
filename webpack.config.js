@@ -34,7 +34,8 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
+        favicon: './src/images/send-icon.svg'
       }),
       new Dotenv({
         systemvars: true,

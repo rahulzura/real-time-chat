@@ -93,7 +93,7 @@ body {
   flex-flow: row nowrap;
   border-radius: 32px;
   overflow: hidden;
-  background-image: url('./assets/chat-window-bg.jpg');
+  background-image: url('./images/chat-window-bg.jpg');
   background-size: contain;
 }
 
@@ -169,7 +169,7 @@ body {
 
 .send-btn {
   display: inline-block;
-  background-image: url('./assets/send-icon.svg');
+  background-image: url('./images/send-icon.svg');
   width: 44px;
   background-size: contain;
   background-position: center;
