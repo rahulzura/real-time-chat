@@ -28,7 +28,7 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
 
   return (
     <div className='chat-box'>
-      <input className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
+      <input placeholder='Type a message...' className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
       <div className='send-btn' type='button' onClick={send}></div>
     </div>
   )
