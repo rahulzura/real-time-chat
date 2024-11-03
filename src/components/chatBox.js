@@ -28,7 +28,7 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
   }
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
       send();
     }
   };
