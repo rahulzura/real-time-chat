@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
   const [message, setMessage] = useState('');
+  const inputRef = useRef(null);
 
   const send = () => {
     if (message && chatPartner && socket) {
@@ -22,6 +23,7 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
 
   const handleSendClick = (e) => {
     e.preventDefault();
+    inputRef.current.focus();
     send();
   }
 
@@ -33,7 +35,7 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
 
   return (
     <div className='chat-box'>
-      <input placeholder='Type a message...' className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
+      <input ref={inputRef} placeholder='Type a message...' className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
       <div className='send-btn' type='button' onClick={handleSendClick}></div>
     </div>
   )
