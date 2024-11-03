@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
   const [message, setMessage] = useState('');
 
-  const handleSendClick = () => {
+  const send = () => {
     if (message && chatPartner && socket) {
       const msgObj = {
         id: Math.random().toString(36).substring(2, 10),
@@ -20,10 +20,16 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      send();
+    }
+  };
+
   return (
     <div className='chat-box'>
-      <input className='chat-input' value={message} onChange={(e) => setMessage(e.target.value)} />
-      <button className='send-btn' type='button' onClick={handleSendClick}>Send</button>
+      <input className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
+      <div className='send-btn' type='button' onClick={send}></div>
     </div>
   )
 };

@@ -29,6 +29,9 @@ const Chat = ({ token, user }) => {
     const fetchUsers = async () => {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
       });
       const data = await res.json();
       setChatUsers(data.users);
@@ -42,21 +45,25 @@ const Chat = ({ token, user }) => {
 
   return (
     <div className='chat-wrapper'>
-      <div className='chat-list-cont'>
-        <h1 className='chat-list-heading'>Chats</h1>
-        <ul className='chat-list'>
+      <div className='chat-cont'>
+        <div className='chat-list-cont'>
+          <h1 className='chat-list-heading'>Chats</h1>
+          <ul className='chat-list'>
+            {
+              chatUsers.map(({ id, username }) => <ChatListItem key={id} id={id} username={username} setChatPartner={setChatPartner} selected={chatPartner === id} user={user} />)
+            }
+          </ul>
+        </div>
+
+        <div className='chat-window'>
           {
-            chatUsers.map(({ _id, username }) => <ChatListItem key={_id} id={_id} username={username} setChatPartner={setChatPartner} selected={chatPartner === _id} user={user} />)
+            messages[chatPartner]?.map(({ id, text, from }) => <Message key={id} text={text} type={from === user ? 'sent' : 'received'} />)
           }
-        </ul>
-      </div>
 
-      <div className='chat-window'>
-        {
-          messages[chatPartner]?.map(({ id, text, from }) => <Message key={id} text={text} type={from === user ? 'sent' : 'received'} />)
-        }
-
-        <ChatBox socket={socket} setMessages={setMessages} chatPartner={chatPartner} user={user} />
+          {
+            chatPartner ? <ChatBox socket={socket} setMessages={setMessages} chatPartner={chatPartner} user={user} /> : null
+          }
+        </div>
       </div>
     </div>
   );
