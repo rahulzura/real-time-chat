@@ -170,6 +170,7 @@ body {
   background-color: var(--black-color);
   color: var(--soft-white-color);
   font-size: 1rem;
+  resize: none;
 }
 
 .chat-box-input:focus-visible {
