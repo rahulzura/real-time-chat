@@ -35,7 +35,14 @@ const ChatBox = ({ socket, setMessages, chatPartner, user }) => {
 
   return (
     <div className='chat-box'>
-      <textarea ref={inputRef} placeholder='Type a message...' className='chat-box-input' value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown}></textarea>
+      <textarea
+        ref={inputRef}
+        placeholder='Type a message...'
+        className='chat-box-input'
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleKeyDown}
+      ></textarea>
       <div className='send-btn' type='button' onClick={handleSendClick}></div>
     </div>
   )

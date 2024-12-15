@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-const AuthForm = ({ view, setView, setToken, setUser }) => {
+const AuthForm = ({
+  view,
+  setView,
+  setToken,
+  setUser,
+  socket,
+}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMessage, setErrMessage] = useState('');
@@ -38,11 +44,14 @@ const AuthForm = ({ view, setView, setToken, setUser }) => {
       }
 
       const data = await res.json();
-      
+
       if (res.status === 200) {
-        setToken(data.token);
-        setUser(data.id);
-        setView('chat');
+        const { id, token } = data;
+        
+        setToken(token);
+        setUser(id);
+        socket.connect();
+        setView('video-call');
       } else {
         setErrMessage(data.err ?? 'Something went wrong');
       }
