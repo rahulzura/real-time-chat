@@ -7,8 +7,8 @@ import './styles.css';
 import VideoCall from './components/videoCall.js';
 
 const { REACT_APP_WS_URL: wsUrl } = process.env;
-const t = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MjhhZWZiZDMzZWYyNTU0ZThmOTQ3ZSIsImlhdCI6MTczNDI3NTQ1OSwiZXhwIjoxNzM0NjIxMDU5fQ.rDkB80wvVeqbbHhuKCJ33OUUDVx6Q09JDEZV-TmQJiY';
-const u = '6728aefbd33ef2554e8f947e';
+const t = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MjYzZThmNzJjNjdmOGNmNzZjMjNjNiIsImlhdCI6MTczNDI4MTY2MSwiZXhwIjoxNzM0NjI3MjYxfQ.AiNt3uI-E3wAtUr4LRQzBO3Im8aD_CIAIdmLIn3dXSg';
+const u = '67263e8f72c67f8cf76c23c6';
 
 const App = () => {
   const [view, setView] = useState('video-call');
